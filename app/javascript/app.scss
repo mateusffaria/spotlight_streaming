@@ -1,0 +1,77 @@
+@import "~react-bulma-components/src/index.sass";
+@import "~animate.css";
+
+html, body, #root{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: $dark;
+}
+
+.hover-focus-green:hover, .hover-focus-green:focus{
+  filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
+}
+
+.button-color-play:focus, .button-color-play:hover{
+  filter: invert(42%) sepia(93%) saturate(120%) hue-rotate(205deg) brightness(119%) contrast(119%);
+}
+
+.button-color-stop:hover, .button-color-stop:focus{
+  filter: invert(42%) sepia(75%) saturate(1100%) hue-rotate(180deg) brightness(50%) contrast(120%);
+}
+
+.button-color-stop{
+  filter: invert(63%) sepia(75%) saturate(1000%) hue-rotate(175deg) brightness(120%) contrast(120%);
+}
+
+.button-color-play{
+  filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
+}
+
+.heartBeat:hover, .heartBeat:focus{
+  @apply animate;
+  animation-delay: 0s;
+  animation-duration: 1.25s !important;
+}
+
+
+.heartBeat, .bounceIn{
+  animation-duration: 0s;
+}
+
+.bounceIn:hover, .bounceIn:focus{
+  @apply animate;
+  animation-delay: 0s;
+  animation-duration: 1.25s !important;  
+}
+
+.verticalAlign{
+  margin: auto 0;
+}
+
+.button-color{
+  filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(100deg) brightness(119%) contrast(119%);  
+}
+
+.vertical-spacing{
+  margin-bottom: 20px !important;
+}
+
+.nav-bar-left{
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container{
+  margin-left: 10% !important;
+}
+
+.margin-navbar{
+  margin-top: 100px;
+}
