@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Favorite from '../../common/favorite'
 import { MdPlaylistAdd } from 'react-icons/md'
 import PlaylistService from '../../../services/playlist'
+import { Link } from 'react-router-dom'
+
 
 const MusicSeparator = styled.hr`
   height: 1px;
@@ -25,16 +27,17 @@ const Music = (props) => {
   async function addToPlaylist(id, song) {
     await PlaylistService.insert_music(id,song);
     setWhichplaylist();
+    alert('Added in you playlist');
     console.log('create');
   }
 
-<div ></div>
-
   function togglePlaylist() {
     setWhichplaylist(playlists.map((playlist, key)=>
-      <h1 className='has-text-white' key={key} id={playlist.id}
-      onClick={() => addToPlaylist(playlist.id, props.song.id)}
-      >{playlist.name}</h1>
+      <div key={key}>
+        <Link to={'#'} className='has-text-white hover-focus-green' id={playlist.id}
+        onClick={() => addToPlaylist(playlist.id, props.song.id)}
+        >{playlist.name}</Link>
+      </div>
     ));    
   }
 
@@ -46,7 +49,7 @@ const Music = (props) => {
     <Fragment>
       <Columns className='is-mobile is-centered'>
         <Columns.Column desktop={{size:1}} mobile={{size: 2}}>
-          <MdPlaylistAdd size='35px' className='has-text-white button-color-stop bounceIn is-vcentered' onClick={() => togglePlaylist()}/>
+          <MdPlaylistAdd size='35px' className='has-text-white button-color-stop bounceIn hover-focus-green' onClick={() => togglePlaylist()}/>
           {whichplaylist}
         </Columns.Column>
         <Columns.Column desktop={{size: 4}} mobile={{size: 8}}>

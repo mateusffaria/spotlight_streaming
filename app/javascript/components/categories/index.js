@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import CategoriesService from '../../services/categories';
-import { Columns, Image, Section } from 'react-bulma-components';
+import { Columns, Image } from 'react-bulma-components';
 import styled from 'styled-components'
 
 const DivVSpaced = styled.div`

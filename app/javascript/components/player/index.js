@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import "react-jinke-music-player/assets/index.css";
 import PlaylistService from '../../services/playlist';
+import RecentlyHeards from '../../services/recently_heards';
 
 const Player = () => {
 
@@ -17,7 +18,6 @@ const Player = () => {
   }, []);
 
   
-
   const options = {
     audioLists: playlist,
     glassBg: true,
@@ -36,6 +36,9 @@ const Player = () => {
     onAudioListsPanelChange() {
       fetchPlayList();
     },
+    async onAudioPlay(audioInfo) {
+      await RecentlyHeards.create(audioInfo.id);
+    },    
   }
 
   return (

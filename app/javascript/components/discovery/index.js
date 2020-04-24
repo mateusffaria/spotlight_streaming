@@ -37,6 +37,7 @@ const Discovery = () => {
   
   return(
     <Fragment>
+      <Heading className='has-text-info' size={6}>To use this application you need to create a playlist, just click on the favorite link(heart) and create one, if you already created, dismiss this alert.</Heading>
       {recent_albums_components.length > 0 &&
         <div>
           <Heading className='has-text-success' size={4}> Recently Played </Heading>

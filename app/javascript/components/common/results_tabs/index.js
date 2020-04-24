@@ -124,7 +124,7 @@ const ResultTab = (props) => {
             <div className="column is-12 has-text-centered">
               {playlists}
             </div>
-            {location.pathname == '/search' ? null :
+            {location.pathname == '/search' || props.playlists[0]? null :
               <div className='has-text-white has-text-centered'>
                 <Link className='heartBeat button-color-play' to={`#`} onClick={() => playlistNameField()}>Create new playlist</Link>
                 <Form.Field onKeyDown={Search}>
