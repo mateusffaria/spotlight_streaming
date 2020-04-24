@@ -10,7 +10,7 @@ const DivVSpaced = styled.div`
 
 const Album = (props) => {
   return(
-    <Link to={`/albums/${props.id}`}>
+    <Link to={`/albums/${props.id}`}>      
       <Image src={props.cover_url}/>
       <DivVSpaced>
         <Heading size={6} className='has-text-white'>{props.title}</Heading>

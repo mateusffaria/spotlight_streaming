@@ -28,6 +28,7 @@ const Albums = () => {
 
   return(    
     <Fragment>
+      <Heading className='has-text-info has-text-centered' size={6}>To add a song to your playlist just click on the icon on the right side and select your playlist, after that, you click on the playlist of the player below</Heading>
       <Columns className='is-vcentered is-mobile is-centered'>
         <Columns.Column desktop={{size: 3}} mobile={{size: 10}}>
           <Image src={album.cover_url}></Image>

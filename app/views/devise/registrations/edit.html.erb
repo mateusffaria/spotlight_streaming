@@ -1,0 +1,46 @@
+<div class="custom-container">
+  <h1 class="title is-3 margin-navbar has-text-white has-text-centered vertical-spacing">Edit <%= resource_name.to_s.humanize %></h1>
+  <div class="form-custom vertical-spacing">
+    <div class="has-text-centered">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email, class: 'label has-text-white' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'input form-input' %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div class="has-text-white">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password, class: 'label has-text-white'  %> 
+        <%= f.password_field :password, autocomplete: "new-password", class:'input form-input', placeholder:"#{@minimum_password_length} characters minimum" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, class: 'label has-text-white'  %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'input form-input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password, class: 'label has-text-white'  %> <i class="has-text-white">(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class:'input form-input' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update", class:'button is-info vertical-spacing' %>
+      </div>
+      <% end %>
+
+      <h3 class="has-text-white">Cancel my account</h3>
+
+      <p class="has-text-white vertical-spacing">Unhappy?
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'button is-danger vertical-spacing' %>
+      </p>
+
+      <%= link_to "Back", :back, class:'has-text-white' %>
+    </div>
+  </div>
+</div>

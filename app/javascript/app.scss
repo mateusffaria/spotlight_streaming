@@ -79,3 +79,27 @@ html, body, #root{
 .has-text-primary:hover, .has-text-primary:focus{
   color: white !important;
 }
+
+.form-input{
+  width: 300px;
+}
+
+.form-custom{
+  background-color: rgba(155, 65, 232, 0.7);
+  border: 2px solid white;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 7px;
+}
+
+.custom-container{
+  width: 70%;
+  margin:0 auto;
+  max-width: 350px;
+}
+
+.container-login{
+  width: 410px;
+  text-align: center;
+  margin: 0 auto;  
+}
