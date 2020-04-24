@@ -16,15 +16,16 @@ Rails.application.routes.draw do
 
   concern :playlists do |options|
     shallow do
-      post '/:song', { to: 'playlists#create', on: :member }.merge(options)
-      delete '/:song', { to: 'playlists#destroy', on: :member }.merge(options)
+      post '/:song', { to: 'playlists#add_playlist_song', on: :member }.merge(options)
+      delete '/:song', { to: 'playlists#remove_playlist_song', on: :member }.merge(options)
     end
   end  
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :dashboard, only: :index
-      resources :playlists, only: [:index, :show, :create, :destroy] do
+      post 'playlists/:name', to: 'playlists#create'
+      resources :playlists, only: [:index, :show, :destroy] do
         concerns :playlists
       end
       resources :categories, only: [ :index, :show ]

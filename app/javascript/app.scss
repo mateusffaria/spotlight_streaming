@@ -16,14 +16,6 @@ html, body, #root{
   filter: invert(42%) sepia(93%) saturate(120%) hue-rotate(205deg) brightness(119%) contrast(119%);
 }
 
-.button-color-stop:hover, .button-color-stop:focus{
-  filter: invert(42%) sepia(75%) saturate(1100%) hue-rotate(180deg) brightness(50%) contrast(120%);
-}
-
-.button-color-stop{
-  filter: invert(63%) sepia(75%) saturate(1000%) hue-rotate(175deg) brightness(120%) contrast(120%);
-}
-
 .button-color-play{
   filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
 }
@@ -47,6 +39,10 @@ html, body, #root{
 
 .verticalAlign{
   margin: auto 0;
+}
+
+.horizontalAlign{
+  margin: 0 auto;
 }
 
 .button-color{
@@ -74,4 +70,12 @@ html, body, #root{
 
 .margin-navbar{
   margin-top: 100px;
+}
+
+.custom-width{
+  width: 60% !important;
+}
+
+.has-text-primary:hover, .has-text-primary:focus{
+  color: white !important;
 }

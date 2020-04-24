@@ -1,10 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Columns, Tabs, Heading } from 'react-bulma-components';
+import { Columns, Tabs, Heading, Button, Form } from 'react-bulma-components';
 import styled, { css } from "styled-components";
 import Album from '../../common/album'
 import Musics from '../../musics'
 import Artist from '../artist'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, Redirect } from 'react-router-dom'
+import PlaylistService from '../../../services/playlist'
 
 const CustomTab = styled(Tabs.Tab)`
   a{
@@ -21,7 +22,38 @@ const ResultTab = (props) => {
   const [albums, setAlbums] = useState([]);
   const [artists, setArtists] = useState([]);
   const [playlists, setPlaylists] = useState([]);
+  const [query, setQuery] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
+  const Search = (e) => {
+    if (e.key === "Enter") {
+      validateField();
+    }
+  }
+
+  function validateField() {
+    if (query.length > 1) {
+      PlaylistService.create_playlist(query);
+      setRedirect(true);
+    } else {
+      alert('name is too short')
+    }
+
+  }
+
+  function getLocation() {
+    let location = useLocation();
+  }
+
+  useEffect(() => {
+    setPlaylists(props.playlists.map((playlist, key) =>
+      <Columns.Column key={key}>
+        <Link to={`/playlists/${playlist.id}`}>
+          <Heading className='is-centered vertical-align has-text-primary'>{playlist.name}</Heading>
+        </Link>
+      </Columns.Column>
+    ));
+  }, [query]);
 
   useEffect(() => {
     setAlbums(props.albums.map((album, key) =>
@@ -36,22 +68,18 @@ const ResultTab = (props) => {
       </Columns.Column>
     ));
 
-
     setPlaylists(props.playlists.map((playlist, key) =>
       <Columns.Column key={key}>
         <Link to={`/playlists/${playlist.id}`}>
-          <Heading className='has-text-white is-centered vertical-align'>{playlist.name}</Heading>
+          <Heading className='has-text-primary is-centered vertical-align'>{playlist.name}</Heading>
         </Link>
       </Columns.Column>
-    ));
+    ));    
   }, [props]);
-
-  function getLocation() {
-    let location = useLocation(); 
-  }
 
   return (
     <Fragment>
+      {redirect ? <Redirect to='/discovery'  /> : ''}
       <Tabs
         style={{ display: props.albums.length || props.artists.length || props.songs.length ? "" : "none" }}
         align='centered' size='medium'>
@@ -64,7 +92,7 @@ const ResultTab = (props) => {
         <CustomTab active={active_tab == 'songs' ? true : false} onClick={() => setActive_tab('songs')}>
           Musics
         </CustomTab>
-        {location.pathname == '/search'? null : 
+        {location.pathname == '/search' ? null :
           <CustomTab active={active_tab == 'playlists' ? true : false} onClick={() => setActive_tab('playlists')}>
             Playlists
           </CustomTab>
@@ -96,9 +124,16 @@ const ResultTab = (props) => {
             <div className="column is-12 has-text-centered">
               {playlists}
             </div>
-            {location.pathname == '/search'? null : 
+            {location.pathname == '/search' ? null :
               <div className='has-text-white has-text-centered'>
-                <p className='heartBeat button-color-play'>Create new playlist</p>
+                <Link className='heartBeat button-color-play' to={`#`} onClick={() => playlistNameField()}>Create new playlist</Link>
+                <Form.Field onKeyDown={Search}>
+                  <Form.Control iconRight className='has-text-centered'>
+                    <Form.Input placeholder='Amazing playlist here' value={query} onChange={e => setQuery(e.target.value)} className='vertical-spacing custom-width'>
+                    </Form.Input>
+                  </Form.Control>
+                  <Button className='is-success is-outlined' onClick={() => validateField()}>Save</Button>
+                </Form.Field>
               </div>
             }
           </div>

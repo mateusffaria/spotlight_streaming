@@ -10,7 +10,6 @@ const Search = () =>{
   const [albums, setAblums] = useState([]);
   const [artists, setArtists] = useState([]);
   const [songs, setSongs] = useState([]);
-  const [playlists, setPlaylists] = useState([]);
 
   async function fetchCategorySearch(id) {
     const response = await CategoriesSearch.show(id);

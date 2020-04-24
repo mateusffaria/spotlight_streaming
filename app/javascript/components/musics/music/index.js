@@ -23,7 +23,7 @@ const Music = (props) => {
   }
 
   async function addToPlaylist(id, song) {
-    await PlaylistService.create(id,song);
+    await PlaylistService.insert_music(id,song);
     setWhichplaylist();
     console.log('create');
   }

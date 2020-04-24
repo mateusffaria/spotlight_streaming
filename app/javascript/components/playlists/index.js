@@ -4,6 +4,8 @@ import PlaylistService from '../../services/playlist'
 import { Heading, Columns } from 'react-bulma-components'
 import styled from 'styled-components'
 import { TiDeleteOutline } from 'react-icons/ti'
+import { Redirect } from 'react-router-dom'
+
 
 const MusicSeparator = styled.hr`
   height: 1px;
@@ -18,6 +20,7 @@ const Playlists = () => {
   let { id } = useParams();
   const [playlist, setPlaylist] = useState([]);
   const [songs, setSongs] = useState([]);
+  const [redirect, setRedirect] = useState('');
 
   async function fetchPlaylist() {
     const response = await PlaylistService.show(id);
@@ -30,10 +33,13 @@ const Playlists = () => {
   }, []);
 
   async function destroyMusic(song) {
-    await PlaylistService.destroy(id,song);
-    console.log('destroy');
-    
+    await PlaylistService.remove_music(id,song);
     fetchPlaylist();    
+  }
+
+  async function destroyPlaylist(id){
+    await PlaylistService.destroy_playlist(id);
+    setRedirect(true);
   }
   
   const songsList = songs.map((song, key) =>
@@ -52,8 +58,10 @@ const Playlists = () => {
 
   return (
     <Fragment>
-      <Columns.Column className='vertical-spacing'>
-        <Heading className='has-text-white has-text-centered vertical-spacing'>{playlist.name} Music list</Heading>
+      {redirect? <Redirect to='/discovery'/> : ''}
+      <Columns.Column className='vertical-spacing has-text-centered'>
+        <Heading className='has-text-white vertical-spacing'>{playlist.name} Music list</Heading>
+        <TiDeleteOutline className='has-text-success heartBeat has-text-center' size='25px' onClick={() => destroyPlaylist(id)}></TiDeleteOutline>
       </Columns.Column>
         {songsList}
     </Fragment>
