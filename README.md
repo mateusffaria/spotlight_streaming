@@ -21,7 +21,6 @@ gem 'serviceworker-rails'
   ```
   rake db:create
   rake db:migrate
-  rake db:seeds
   ```
 # Install gems
   ```
