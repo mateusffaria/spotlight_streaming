@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import SectionWrapper from '../../components/section_wrapper'
 import { Columns, Heading, Button } from 'react-bulma-components'
 import styled from 'styled-components'

@@ -34,7 +34,7 @@ const Menu = () => {
   return(
     <Fragment>
       <Navbar color="dark">
-        <Container>
+        <Container className={useLocation().pathname == '/'? null : 'container-left'}>
           <ColumnsFullWidth className="is-mobile">
             <Columns.Column desktop={{size: 2}} mobile={{size: 5}} className='logo-brand'>
               <img src={logoImage} alt="logo" className="image" width='110px'/>
