@@ -1,24 +1,90 @@
-# README
+# Spotlight
+This is a clone of Spotify the backend was built utilizing Ruby on Rails and frontend ReactJS, for playing music, view albums, artists, with the possibility to you favorite them.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Core Technology
 
-Things you may want to cover:
+* Ruby version 2.6.3
 
-* Ruby version
+* Rails version 6.0.2.2
 
-* System dependencies
+* Database engine: SQLite 3
 
-* Configuration
+# Ruby Gems
+```
+gem 'devise'
+gem 'rack-cors'
+gem 'rubocop', '~> 0.82.0'
+gem 'serviceworker-rails'
+```
+# Database creation
+  * Run on terminal: 
+  ```
+  rake db:create
+  rake db:migrate
+  ```
+# Install gems
+  ```
+  bundle install
+  ```
 
-* Database creation
+# Deployment instructions
+  ```
+  rails s
+  ```
+  
+# How to use
+### 1. This is the initial page.
 
-* Database initialization
+  ![initial](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/Initial.png)
 
-* How to run the test suite
+### 2. If you have an account, log in, or create one if you don't.
 
-* Services (job queues, cache servers, search engines, etc.)
+  ![sign_up](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/login.png)
+  
+### 3. This is the discovery page, you can navigate through all the applicaton now.
 
-* Deployment instructions
+  ![discovery](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/discovery.png)
+    
+### 4. This is the favorites page, here you can create a playlist and see your favorite songs, albums, artists.
 
-* ...
+  ![favorite](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/liked_albums.png)
+  
+
+### 5. New playlist.
+
+  ![new](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/new_playlist.png)  
+  
+
+### 6. Albums.
+
+  ![albums](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/album_page.png)  
+  
+  
+### 7. Musics.
+
+  ![musics](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/music_added.png)
+  
+  
+### 8. Artist page.
+
+  ![artists](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/artist_page.png)
+  
+  
+### 9. Search page.
+
+  ![search](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/search_category.png)
+  
+  
+### 10. Search page results.
+
+  ![results](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/search_result.png)
+  
+  
+### 11. Player full.
+
+  ![player_full](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/player_full.png)
+  
+  
+### 12. Player mini.
+
+  ![player_mini](https://github.com/MateusFaria-TGG/spotlight_streaming/blob/master/public/readme_images/player_hide.png)    
