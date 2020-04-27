@@ -33,7 +33,7 @@ const Artists = () => {
         <Columns desktop={{size:3}} mobile={{size:6}} className='is-vcentered is-centered has-text-centered'>
           <Columns.Column desktop={{size:3}} mobile={{size:6}}>
             <Image src={artist.photo_url} className='vertical-spacing'></Image>
-            <Favorite like_state={artist.favorite} className='vertical-spacing'></Favorite>
+            <Favorite like_state={artist.favorite} id={artist.id} kind={'artists'} className='vertical-spacing'></Favorite>
           </Columns.Column>
         </Columns>        
       <Columns className='is-vcentered is-mobile'>
